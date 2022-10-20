@@ -5,12 +5,20 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class loginstepdefi {
     public WebDriver driver;
-    public  loginpageobjects lpo;
+    public loginpageobjects lpo;
+
+    @After
+    public void teardown()
+{
+    driver.close();
+}
+
     @Given("user opened chrome browser and entered url")
     public void user_opened_chrome_browser_and_entered_url() {
         WebDriverManager.chromedriver().setup();
